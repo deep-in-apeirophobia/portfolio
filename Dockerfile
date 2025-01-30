@@ -10,7 +10,7 @@ RUN yarn install
 
 COPY . .
 
-RUN npm build
+RUN npm run build
 
 FROM node:20-alpine3.20 as release
 

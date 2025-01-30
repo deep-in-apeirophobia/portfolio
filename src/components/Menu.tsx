@@ -1,5 +1,5 @@
 'use client'
-import { useMotionValueEvent, useScroll, motion, AnimatePresence } from "motion/react"
+import { motion, AnimatePresence } from "motion/react"
 import { useState } from "react"
 
 const Menu = () => {

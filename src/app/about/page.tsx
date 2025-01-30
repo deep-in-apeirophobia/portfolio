@@ -12,15 +12,15 @@ export default function About() {
 					<ProfileBadgeAbout />
 
 					<p className="text-lg md:text-2xl p-8 rounded-lg  bg-neutral-700 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 max-w-[90%] md:max-w-[600px] md:-translate-x-1/4">
-						I'm a creative, passionate developer and love creating
+						I&apos;m a creative, passionate developer and love creating
 						new products to improve our lives in anyway that I
-						can. I'm hardworking and like working with different
+						can. I&apos;m hardworking and like working with different
 						teams. I continuously add new skills to my skill set by
 						researching new technologies that can help both the
 						customer experience and the technical infrastructure.
 					</p>
 					<p className="text-lg md:text-2xl p-8 rounded-lg  bg-neutral-700 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 max-w-[90%] md:max-w-[600px] md:translate-x-1/3">
-					If you're on an adventurous journey to make an innovative and user friendly product and bridge the gap between you and your users, I'm ready to accompany you through this elusive path. I'm passionate about new and exciting  ideas, seeing them incorporated into users' daily lives.
+					If you&apos;re on an adventurous journey to make an innovative and user friendly product and bridge the gap between you and your users, I&apos;m ready to accompany you through this elusive path. I&apos;m passionate about new and exciting  ideas, seeing them incorporated into users&apos; daily lives.
 					</p>
 
 				</div>

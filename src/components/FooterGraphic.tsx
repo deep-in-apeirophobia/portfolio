@@ -1,8 +1,8 @@
 "use client"
 
-import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useMotionValueEvent, useSpring, useTime, useTransform } from 'motion/react'
+import { motion, useMotionTemplate, useMotionValue, useSpring, useTime, useTransform } from 'motion/react'
 
-import { RefObject, useEffect, useMemo, useRef } from "react";
+import { RefObject, useEffect, useRef } from "react";
 import { frame } from 'motion';
 
 const SIZE = 0.5;

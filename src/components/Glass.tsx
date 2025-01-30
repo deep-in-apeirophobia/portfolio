@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Canvas, extend, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { shaderMaterial } from '@react-three/drei';
-import { motion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
+import { useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
 import * as THREE from 'three';
 
 // Previous shader material code remains the same

@@ -46,7 +46,7 @@ export default function ProfileBadge() {
 							exit={{ opacity: 0, x: 10, width: 0}}
 							className="px-4 overflow-hidden text-nowrap"
 						>
-							Hi, I'm Atrin!
+							Hi, I&apos;m Atrin!
 						</motion.span>
 					)}
 				</AnimatePresence>

@@ -2,12 +2,12 @@ import Chip from "@/components/chip";
 import FooterGraphic from "@/components/FooterGraphic";
 import HeaderBG from "@/components/HeaderBg";
 import ProfileBadge from "@/components/ProfileBadge";
-import type { Project } from '@/types/project'
-import Image from "next/image";
+import { Project } from "@/components/Project";
+import type { Project as ProjectType } from '@/types/project'
 
 const TECH_FOOTER = ["React", "Vue", "Django", "FastAPI", "Go", "Python", "Docker", "Kubernetes"]
 
-const PROJECTS: Project[] = [
+const PROJECTS: ProjectType[] = [
 	{
 		thumbnail: '/projects/1.png',
 		name: 'Logo Diffusion',
@@ -101,7 +101,7 @@ export default function Home() {
 							</span>
 						</h1>
 						<h3 className="col-start-6 col-end-11 row-start-4 text-3xl self-center">
-							I'm the Fullstack Dev you need <br/>
+							I&apos;m the Fullstack Dev you need <br/>
 							<span className="mx-12"/> to guide you in your journey
 						</h3>
 				</div>
@@ -124,8 +124,8 @@ export default function Home() {
 							Atrin Hojjat
 						</h4>
 						<h5 className="text-xl [font-family:var(--font-atma)] ">
-							If you're looking to make an amazing app, don't hesitate to call! <br/>
-							I'm here to guide you through your journey.
+							If you&apos;re looking to make an amazing app, don&apos;t hesitate to call! <br/>
+							I&apos;m here to guide you through your journey.
 						</h5>
 					</div>
 

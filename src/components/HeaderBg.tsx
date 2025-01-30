@@ -1,7 +1,7 @@
 "use client"
 
 import useWindowDimensions from "@/hooks/useWindowDimensions"
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, } from "react";
 
 import { motion } from 'motion/react'
 import { useFollowPointer } from "@/hooks/useFollowPointer";

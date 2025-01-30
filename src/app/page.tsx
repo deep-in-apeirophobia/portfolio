@@ -77,7 +77,7 @@ export default function Home() {
 				<HeaderBG />
 
 				<div className="w-full h-full p-12 md:py-[200px] md:px-[300px] grid grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 gap-2">
-						<h1 className="max-md:z-50 text-7xl grid grid-cols-12 grid-rows-8 md:grid-rows-6 col-start-1 col-end-11 row-start-3 row-end-10 md:col-start-3 md:col-end-9 md:row-start-1 md:row-end-4 gap-1 md:gap-0">
+						<h1 className="max-md:z-20 text-7xl grid grid-cols-12 grid-rows-8 md:grid-rows-6 col-start-1 col-end-11 row-start-3 row-end-10 md:col-start-3 md:col-end-9 md:row-start-1 md:row-end-4 gap-1 md:gap-0">
 							<span className="">
 								Build
 							</span>

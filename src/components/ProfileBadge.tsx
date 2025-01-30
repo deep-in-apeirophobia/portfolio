@@ -18,7 +18,7 @@ export default function ProfileBadge() {
 			className="
 				rounded-full  group 
 				fixed bottom-10 right-10 overflow-hidden
-				 z-10 p-1"
+				 z-40 p-1"
 		>
 			<div className="
 				w-full h-full

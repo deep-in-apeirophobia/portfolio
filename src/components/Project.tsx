@@ -9,7 +9,7 @@ import Chip from './chip';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
-const GlassPhotoScene = dynamic(() => import("./Glass"), { ssr: false });
+// const GlassPhotoScene = dynamic(() => import("./Glass"), { ssr: false });
 
 export function Project(props: { project: Project }) {
 	const { project } = props;

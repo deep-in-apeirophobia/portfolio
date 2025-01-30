@@ -23,8 +23,8 @@ export default function Contact() {
 						</div>
 
 						<div className="flex gap-4">
-							<Chip as="a" className="bg-indigo-600/100 text-xl" href="mailto:finlayrogers213@outlook.com">Github</Chip>
-							<Chip as="a" className="bg-indigo-600/100 text-xl" href="mailto:finlayrogers213@outlook.com">LinkedIn</Chip>
+							<Chip as="a" className="bg-indigo-600/100 text-xl" href="https://github.com/deep-in-apeirophobia/">Github</Chip>
+							<Chip as="a" className="bg-indigo-600/100 text-xl" href="https://www.linkedin.com/in/atrin-h/">LinkedIn</Chip>
 						</div>
 					</div>
 

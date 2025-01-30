@@ -100,7 +100,7 @@ export default function Home() {
 								with ME
 							</span>
 						</h1>
-						<h3 className="max-md:z-50 max-md:col-span-10 col-start-2 row-start-11 md:col-start-6 md:col-end-11 md:row-start-4 text-3xl md:text-4xl self-center">
+						<h3 className="max-md:z-20 max-md:col-span-10 col-start-2 row-start-11 md:col-start-6 md:col-end-11 md:row-start-4 text-3xl md:text-4xl self-center">
 							I&apos;m the Fullstack Dev you need <br className="max-md:hidden"/>
 							<span className="md:mx-12"/> to guide you in your journey
 						</h3>

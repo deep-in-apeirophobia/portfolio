@@ -5,6 +5,7 @@ import { Canvas, extend, useFrame, useLoader, useThree } from '@react-three/fibe
 import { shaderMaterial } from '@react-three/drei';
 import { useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
 import * as THREE from 'three';
+import { cwWebGPURenderer } from 'three/webgpu'
 import { WebGPURenderer } from 'three/webgpu'
 import * as TSL from 'three/tsl'
 import { EffectComposer, ChromaticAberration, Bloom } from '@react-three/postprocessing';
@@ -242,9 +243,9 @@ const GlassPhotoScene = ({
   bleedIntensity = 0.05,
   scrollRange = [0, 1]
 }) => {
-	// const [mounted, setMounted] = useState(false);
+	const [mounted, setMounted] = useState(false);
 
-  const [frameloop, setFrameloop] = useState('always')
+  const [frameloop, setFrameloop] = useState('never')
 
 	// useEffect(() => {
 	// 	if (window) setMounted(true)
@@ -269,6 +270,30 @@ const GlassPhotoScene = ({
 				// 	renderer.xr = { addEventListener: () => {} }
 				// 	return renderer
 				// }}
+				// gl={canvas => {
+				// 	console.log(canvas)
+				// 	const renderer = new THREE.WebGLRenderer({
+				// 		canvas: canvas.canvas,
+				// 		powerPreference: 'high-performance',
+				// 		antialias: true,
+				// 		alpha: true,
+				// 	})
+				// 	// renderer.init().then(() => setFrameloop('always'))
+				// 	renderer.xr.enabled = false;
+				// 	return renderer
+				// }}
+				onCreated={({ gl, setFrameloop }) => {
+					console.log("Renderer initialized:", gl);
+
+					// Set frameLoop to "always" when the renderer is ready
+					setFrameloop("always");
+
+					// Optional: Modify WebGLRenderer settings
+					// gl.setPixelRatio(window.devicePixelRatio);
+					// gl.setSize(window.innerWidth, window.innerHeight);
+					gl.xr.enabled = false;
+				}}
+
 
 			>
 				

@@ -3,9 +3,13 @@
 import type { Project } from '@/types/project'
 import { motion, useMotionValueEvent, } from 'motion/react'
 import { useRef, useState } from "react";
-import GlassPhotoScene from "./Glass";
+// import GlassPhotoScene from "./Glass";
 import { useScroll } from "motion/react";
 import Chip from './chip';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+
+const GlassPhotoScene = dynamic(() => import("./Glass"), { ssr: false });
 
 export function Project(props: { project: Project }) {
 	const { project } = props;
@@ -23,11 +27,21 @@ export function Project(props: { project: Project }) {
 			setAnimation('show')
 		}
 	})
+	// const [mounted, setMounted] = useState(false);
+	//
+ //  useEffect(() => {
+ //    setMounted(true);
+ //  }, []);
+
 
 	return (
 		<div ref={ref} className="group flex flex-col md:flex-row md:odd:flex-row-reverse">
-			<div className="w-full md:w-[600px] aspect-video">
-				<GlassPhotoScene imageUrl={project.thumbnail}/>
+			<div className="w-full md:w-[600px] aspect-video px-8 py-4">
+				{/*mounted && <GlassPhotoScene imageUrl={project.thumbnail}/>*/}
+				<div className="relative h-full w-full overflow-hidden [&>img]:rounded-lg">
+					<Image src={project.thumbnail} alt={project.name}  fill
+					sizes="(max-width: 768px) 400px, (max-width: 1200px) 600px, 800px"/>
+				</div>
 			</div>
 
 			<motion.div initial="hide" animate={animation} className="max-w-[40%] space-y-4 py-8" variants={{

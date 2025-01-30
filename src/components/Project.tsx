@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 // import GlassPhotoScene from "./Glass";
 import { useScroll } from "motion/react";
 import Chip from './chip';
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import Image from 'next/image';
 
 // const GlassPhotoScene = dynamic(() => import("./Glass"), { ssr: false });

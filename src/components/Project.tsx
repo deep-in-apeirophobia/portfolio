@@ -1,5 +1,6 @@
 "use client"
 
+import type { Project } from '@/types/project'
 import { motion, useMotionValueEvent, } from 'motion/react'
 import { useRef, useState } from "react";
 import GlassPhotoScene from "./Glass";

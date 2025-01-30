@@ -2,7 +2,7 @@ import Chip from "@/components/chip";
 import FooterGraphic from "@/components/FooterGraphic";
 import HeaderBG from "@/components/HeaderBg";
 import ProfileBadge from "@/components/ProfileBadge";
-import { Project } from "@/components/Project";
+import type { Project } from '@/types/project'
 import Image from "next/image";
 
 const TECH_FOOTER = ["React", "Vue", "Django", "FastAPI", "Go", "Python", "Docker", "Kubernetes"]

@@ -8,9 +8,9 @@ permissions:
 
 on:
   push:
-    branches: [ "master", "production" ]
+    branches: [ "main", "dev" ]
   pull_request:
-    branches: [ "master", "production" ]
+    branches: [ "main", "dev" ]
     
 env:
   REGISTRY: ghcr.io

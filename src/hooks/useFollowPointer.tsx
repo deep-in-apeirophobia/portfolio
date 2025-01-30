@@ -17,9 +17,10 @@ export function useFollowPointer(ref: RefObject<HTMLDivElement | null>, bgRef: R
 		if (!ref.current) return
 
 		const handlePointerMove = ({ clientX, clientY }: MouseEvent) => {
-				const element = ref.current!
+				const element = ref.current
 
 				frame.read(() => {
+						if (!element) return ;
 						xPoint.set(
 								clientX - element.offsetLeft - element.offsetWidth / 2
 						)

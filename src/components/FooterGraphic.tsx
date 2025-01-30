@@ -64,6 +64,7 @@ function useFollowPointer(ref: RefObject<HTMLDivElement | null>) {
 				const element = ref.current!
 
 				frame.read(() => {
+						if (!element) return ;
 						const rect = element.getBoundingClientRect(); 
 						const center = {
 							x: (rect.left + rect.right) / 2,

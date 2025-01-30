@@ -1,5 +1,8 @@
 FROM node:20-alpine3.20 as base
 
+ARG SENTRY_AUTH_TOKEN
+ENV SENTRY_AUTH_TOKEN ${SENTRY_AUTH_TOKEN}
+
 WORKDIR /app
 
 RUN npm -i g yarn

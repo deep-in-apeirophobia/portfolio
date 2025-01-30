@@ -76,46 +76,46 @@ export default function Home() {
 			<main className="w-full h-screen relative">
 				<HeaderBG />
 
-				<div className="w-full h-full p-12 md:py-[200px] md:px-[300px] grid grid-cols-1 md:grid-cols-12 md:grid-rows-6 gap-2">
-						<h1 className="text-7xl grid grid-cols-12 grid-rows-6 col-start-3 col-end-9 row-start-1 row-end-4">
-							<span>
+				<div className="w-full h-full p-12 md:py-[200px] md:px-[300px] grid grid-cols-1 md:grid-cols-12 grid-rows-12 gap-2">
+						<h1 className="max-md:z-50 text-7xl grid grid-cols-12 grid-rows-8 md:grid-rows-6 col-start-1 col-end-11 row-start-3 row-end-10 md:row-start-1 md:row-end-4">
+							<span className="">
 								Build
 							</span>
-							<span className="col-start-5 row-start-1 -translate-x-6">
+							<span className="row-start-2 md:col-start-5 md:row-start-1 -translate-x-6">
 								VIBRANT,{' '}
 							</span>
-							<span className="font-bold [font-family:var(--font-space-grotesk)] col-start-3 row-start-2 translate-y-3">
+							<span className="font-bold [font-family:var(--font-space-grotesk)] col-start-3 row-start-3 md:row-start-2 translate-y-3">
 								FAST,
 							</span>
-							<span className="col-start-4 row-start-3 -translate-x-6 translate-y-5">
+							<span className="col-start-4 row-start-4 md:row-start-3 -translate-x-6 md:translate-y-5">
 								and
 							</span>
-							<span className="col-start-6 row-start-4 -translate-y-[45%]">
+							<span className="col-start-1 md:col-start-6 row-start-5 md:row-start-4 md:-translate-y-[45%]">
 								SCALABLE
 							</span>
-							<span className="col-start-2 row-start-5 -translate-y-[50%]">
+							<span className="col-start-2 row-start-6 md:row-start-5 md:-translate-y-[50%]">
 								WebApps 
 							</span>
-							<span className="col-start-8 row-start-5 col-span-12 -translate-x-6 -translate-y-[20%]">
+							<span className="col-start-8 row-start-7 md:row-start-5 col-span-12 -translate-x-6 md:-translate-y-[20%]">
 								with ME
 							</span>
 						</h1>
-						<h3 className="col-start-6 col-end-11 row-start-4 text-3xl self-center">
-							I&apos;m the Fullstack Dev you need <br/>
-							<span className="mx-12"/> to guide you in your journey
+						<h3 className="max-md:z-50 col-span-10 col-start-2 row-start-11 md:col-start-6 md:col-end-11 md:row-start-4 text-3xl self-center">
+							I&apos;m the Fullstack Dev you need <br className="max-md:hidden"/>
+							<span className="md:mx-12"/> to guide you in your journey
 						</h3>
 				</div>
 			</main>
 
 			<section id="projects" className="py-12 flex flex-col gap-12">
-				<h4 className="px-20 text-4xl [font-family:var(--font-space-grotesk)]"> Projects </h4>
+				<h4 className="px-8 md:px-20 text-4xl [font-family:var(--font-space-grotesk)]"> Projects </h4>
 				{PROJECTS.map(p => (
 					<Project key={p.name} project={p} />
 				))}
 			</section>
 
-			<footer className="bg-black px-12 md:px-20 py-6 w-full grid grid-cols-3">
-				<div className="w-[60px] h-[60px] md:w-[300px] md:h-[300px]">
+			<footer className="bg-black px-12 md:px-20 py-6 w-full flex flex-col md:grid md:grid-cols-3">
+				<div className="w-[200px] h-[200px] self-center md:w-[300px] md:h-[300px]">
 					<FooterGraphic />
 				</div>
 				<div className="col-span-2 flex flex-col gap-6 self-center">

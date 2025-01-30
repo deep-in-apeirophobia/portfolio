@@ -44,7 +44,7 @@ export function Project(props: { project: Project }) {
 				</div>
 			</div>
 
-			<motion.div initial="hide" animate={animation} className="max-w-[40%] space-y-4 py-8" variants={{
+			<motion.div initial="hide" animate={animation} className="px-8 md:px-0 md:max-w-[40%] space-y-4 py-8" variants={{
 				hide: {},
 				show: {
 					transition: {

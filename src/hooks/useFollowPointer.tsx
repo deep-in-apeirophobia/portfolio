@@ -20,7 +20,7 @@ export function useFollowPointer(ref: RefObject<HTMLDivElement | null>, bgRef: R
 				const element = ref.current
 
 				frame.read(() => {
-						if (!element) return ;
+						if (!element || !bgRef.current) return ;
 						xPoint.set(
 								clientX - element.offsetLeft - element.offsetWidth / 2
 						)

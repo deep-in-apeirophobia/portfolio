@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Atma,  Marck_Script,  Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import Menu from "@/components/Menu";
 
 
 const spaceGrotesk = Space_Grotesk({
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body
         className={`${marckScript.variable} ${spaceGrotesk.variable} ${atma.variable} antialiased custom-scroll  w-full`}
       >
+				<Menu />
         {children}
       </body>
     </html>

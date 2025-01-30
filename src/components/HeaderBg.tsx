@@ -15,6 +15,7 @@ export default function HeaderBG() {
 	const circleRadius = useMemo(() => Math.min(dimensions.height, dimensions.width) / 5, [dimensions])
 	const { x, y } = useFollowPointer(circleRef, bgRef)
 
+	if (dimensions.fake) return <></>
 
 	return (
 		<>

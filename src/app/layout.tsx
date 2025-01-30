@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Atma,  Marck_Script,  Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const atma = Atma({
+  variable: "--font-atma",
   subsets: ["latin"],
+	weight: ["300", "400", "500", "700"]
+});
+
+const marckScript = Marck_Script({
+  variable: "--font-marck-script",
+	weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -25,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${marckScript.variable} ${spaceGrotesk.variable} ${atma.variable} antialiased custom-scroll  w-full`}
       >
         {children}
       </body>

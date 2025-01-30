@@ -166,6 +166,13 @@ const GlassPhotoScene = ({
   bleedIntensity = 0.05,
   scrollRange = [0, 1]
 }) => {
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		if (window) setMounted(true)
+	}, [])
+
+	if (!mounted) return <></>;
 
   return (
     <div className="w-full h-full">

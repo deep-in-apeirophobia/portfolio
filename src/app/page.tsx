@@ -76,15 +76,15 @@ export default function Home() {
 			<main className="w-full h-screen relative">
 				<HeaderBG />
 
-				<div className="w-full h-full p-12 md:py-[200px] md:px-[300px] grid grid-cols-1 md:grid-cols-12 grid-rows-12 gap-2">
-						<h1 className="max-md:z-50 text-7xl grid grid-cols-12 grid-rows-8 md:grid-rows-6 col-start-1 col-end-11 row-start-3 row-end-10 md:row-start-1 md:row-end-4">
+				<div className="w-full h-full p-12 md:py-[200px] md:px-[300px] grid grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 gap-2">
+						<h1 className="max-md:z-50 text-7xl grid grid-cols-12 grid-rows-8 md:grid-rows-6 col-start-1 col-end-11 row-start-3 row-end-10 md:col-start-3 md:col-end-9 md:row-start-1 md:row-end-4 gap-1 md:gap-0">
 							<span className="">
 								Build
 							</span>
 							<span className="row-start-2 md:col-start-5 md:row-start-1 -translate-x-6">
 								VIBRANT,{' '}
 							</span>
-							<span className="font-bold [font-family:var(--font-space-grotesk)] col-start-3 row-start-3 md:row-start-2 translate-y-3">
+							<span className="font-bold [font-family:var(--font-space-grotesk)] col-start-3 row-start-3 md:row-start-2 md:translate-y-3">
 								FAST,
 							</span>
 							<span className="col-start-4 row-start-4 md:row-start-3 -translate-x-6 md:translate-y-5">
@@ -93,14 +93,14 @@ export default function Home() {
 							<span className="col-start-1 md:col-start-6 row-start-5 md:row-start-4 md:-translate-y-[45%]">
 								SCALABLE
 							</span>
-							<span className="col-start-2 row-start-6 md:row-start-5 md:-translate-y-[50%]">
+							<span className="col-start-2 max-md:row-start-6 md:row-start-5 md:-translate-y-[50%]">
 								WebApps 
 							</span>
-							<span className="col-start-8 row-start-7 md:row-start-5 col-span-12 -translate-x-6 md:-translate-y-[20%]">
+							<span className="col-start-3 col-span-10 row-start-7 md:row-start-5 md:col-start-8 md:col-span-5 md:-translate-x-6 translate-y-4 md:-translate-y-[20%]">
 								with ME
 							</span>
 						</h1>
-						<h3 className="max-md:z-50 col-span-10 col-start-2 row-start-11 md:col-start-6 md:col-end-11 md:row-start-4 text-3xl self-center">
+						<h3 className="max-md:z-50 max-md:col-span-10 col-start-2 row-start-11 md:col-start-6 md:col-end-11 md:row-start-4 text-3xl md:text-4xl self-center">
 							I&apos;m the Fullstack Dev you need <br className="max-md:hidden"/>
 							<span className="md:mx-12"/> to guide you in your journey
 						</h3>

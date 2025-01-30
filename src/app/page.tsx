@@ -96,7 +96,7 @@ export default function Home() {
 							<span className="col-start-2 max-md:row-start-6 md:row-start-5 md:-translate-y-[50%]">
 								WebApps 
 							</span>
-							<span className="col-start-3 col-span-10 row-start-7 md:row-start-5 md:col-start-8 md:col-span-5 md:-translate-x-6 translate-y-4 md:-translate-y-[20%]">
+							<span className="col-start-3 col-span-10 row-start-7 md:row-start-5 md:col-start-8 md:col-span-5 md:-translate-x-6 translate-y-4 md:-translate-y-[20%] text-nowrap">
 								with ME
 							</span>
 						</h1>

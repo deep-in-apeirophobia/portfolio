@@ -1,5 +1,6 @@
 'use client'
 import { motion, AnimatePresence } from "motion/react"
+import Link from "next/link";
 import { useState } from "react"
 
 const Menu = () => {
@@ -79,33 +80,36 @@ const Menu = () => {
 						exit={{ width: 0}}
 						className="flex gap-8 px-8"
 					>
-						<motion.a
+						<motion.div
 							className="text-nowrap"
-							href="/"
 							initial={{ opacity: 0, x: -30, y: -5 }}
 							animate={{ opacity: 1, x: 0, y: 0 }}
 							exit={{ opacity: 0, x: 10, y: 5 }}
 						>
-							Home
-						</motion.a>
-						<motion.a
+							<Link href="/">
+								Home
+							</Link>
+						</motion.div>
+						<motion.div
 							className="text-nowrap"
-							href="/contact-me"
 							initial={{ opacity: 0, x: -30, y: -5 }}
 							animate={{ opacity: 1, x: 0, y: 0 }}
 							exit={{ opacity: 0, x: 10, y: 5 }}
 						>
-							Contact Me
-						</motion.a>
-						<motion.a
+							<Link href="/contact-me">
+								Contact Me
+							</Link>
+						</motion.div>
+						<motion.div
 							className="text-nowrap"
-							href="/about"
 							initial={{ opacity: 0, x: -30, y: -5 }}
 							animate={{ opacity: 1, x: 0, y: 0 }}
 							exit={{ opacity: 0, x: 10, y: 5 }}
 						>
-							About
-						</motion.a>
+							<Link href="/about">
+								About
+							</Link>
+						</motion.div>
 					</motion.div>
 				)}
 			</AnimatePresence>

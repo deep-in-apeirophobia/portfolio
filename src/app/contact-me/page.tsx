@@ -18,7 +18,7 @@ export default function Contact() {
 							<span>Email:</span>
 							<div className="flex flex-row items-center gap-2 flex-wrap">
 								<Chip as="a" className="bg-indigo-600/100 text-sm md:text-lg" href="mailto:atrin.hojjat@gmail.com">atrin.hojjat@gmail.com</Chip>
-								<Chip as="a" className="bg-indigo-600/100 text-sm md:text-lg" href="mailto:finlayrogers213@outlook.com">finlayrogers213@outlook.com</Chip>
+								{/* <Chip as="a" className="bg-indigo-600/100 text-sm md:text-lg" href="mailto:finlayrogers213@outlook.com">finlayrogers213@outlook.com</Chip> */}
 							</div>
 						</div>
 

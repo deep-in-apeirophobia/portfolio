@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: autodeploy-role
+  namespace: portfolio
+rules:
+- apiGroups: ["", "apps", "extensions"]
+  resources: ["pods", "deployments", "services", "replicasets", "ingress"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]

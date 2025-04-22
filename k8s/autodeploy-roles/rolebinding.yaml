@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: autodeploy-role-binding
+  namespace: portfolio
+subjects:
+- kind: ServiceAccount
+  name: gh-portfolio-autodeploy
+  namespace: portfolio
+roleRef:
+  kind: Role
+  name: autodeploy-role
+  apiGroup: rbac.authorization.k8s.io
+

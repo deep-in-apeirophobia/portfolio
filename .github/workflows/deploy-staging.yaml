@@ -1,24 +1,26 @@
+name: Build and Deploy to K8s stagign
 
-name: Build Docker Images
+on:
+  push:
+    branches:
+      - main
 
 permissions:
   packages: write
   contents: read
   pull-requests: read
 
-on:
-  pull_request:
-    branches: [ "main", "production" ]
-    
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
 jobs:
-  build-api:
+  build:
     name: Build and Push React production image to github
     runs-on: ubuntu-latest
+    outputs:
+      image_tag: ${{ steps.meta.outputs.tags }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -36,9 +38,9 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
+            type=sha,enable=true
             type=ref,event=branch
             type=ref,event=pr
-            type=sha,enable=true
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
@@ -50,3 +52,35 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             SENTRY_AUTH_TOKEN=${{ env.SENTRY_AUTH_TOKEN }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: build
+    environment: staging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Decode Kubeconfig
+        run: echo "$kubeconfig" | base64 -d > kubeconfig
+        env:
+          K8S_KUBECONFIG_ENCODED: ${{ secrets.kubeconfig }}
+
+      - name: Set Kubeconfig
+        uses: azure/k8s-set-context@v3
+        with:
+          method: kubeconfig
+          kubeconfig: kubeconfig
+
+      - name: Get Image Tag
+        id: get_image_tag
+        run: |
+          echo "image_tag=$(echo '${{ steps.meta.outputs.tags }}' | jq -r '.[0]')" >> "$TAG"
+          echo $TAG
+
+      - name: Deploy to Kubernetes
+        run: |
+          helm upgrade -n portfolio -f ./k8s/values/staging.yaml --set image.tag="$TAG"  atrin-portfolio-staging ./k8s/portfolio/
+
+

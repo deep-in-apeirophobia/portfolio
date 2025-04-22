@@ -74,11 +74,10 @@ jobs:
       - name: Get Image Tag
         id: get_image_tag
         run: |
-          echo "image_tag=$(echo '${{ steps.meta.outputs.tags }}' | jq -r '.[0]')" >> "$TAG"
-          echo $TAG
+          echo "image_tag=$(echo '${{ steps.meta.outputs.tags }}' | jq -r '.[0]')" >> "$GITHUB_OUTPUT"
 
       - name: Deploy to Kubernetes
         run: |
-          helm upgrade -n portfolio -f ./k8s/values/staging.yaml --set image.tag="$TAG"  atrin-portfolio-staging ./k8s/portfolio/
+          helm upgrade -n portfolio -f ./k8s/values/staging.yaml --set image.tag="${{ steps.get_image_tag.outputs.image_tag }}"  atrin-portfolio-staging ./k8s/portfolio/
 
 

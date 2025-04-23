@@ -69,8 +69,8 @@ jobs:
       - name: Get Image Tag
         id: get_image_tag
         run: |
-          echo "image_tag=$(echo '${{ steps.meta.outputs.tags }}' | jq -r '.[0]')" >> "$GITHUB_OUTPUT"
-          echo '${{ steps.meta.outputs.tags }}'
+          echo "image_tag=$(echo '${{ needs.build.outputs.image_tag }}' | jq -r '.[0]')" >> "$GITHUB_OUTPUT"
+          echo '${{ needs.build.outputs.image_tag }}'
 
       - name: Deploy to Kubernetes
         run: |

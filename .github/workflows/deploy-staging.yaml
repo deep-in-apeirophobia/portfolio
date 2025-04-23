@@ -73,6 +73,7 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
+          kubectl config use-context portfolio-ctx
           helm upgrade -n portfolio -f ./k8s/values/staging.yaml --set image.tag="${{ steps.get_image_tag.outputs.image_tag }}"  atrin-portfolio-staging ./k8s/portfolio/
 
 

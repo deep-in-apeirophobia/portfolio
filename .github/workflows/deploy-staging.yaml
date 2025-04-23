@@ -60,19 +60,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Decode Kubeconfig
-        run: |
-          echo "$K8S_KUBECONFIG_ENCODED" | base64 -d > kubeconfig
-          echo ::set-env name=KUBECONFIG_VALUE::$(cat ./kubeconfig)
-
-        env:
-          K8S_KUBECONFIG_ENCODED: ${{ secrets.kubeconfig }}
-
       - name: Set Kubeconfig
         uses: azure/k8s-set-context@v3
         with:
           method: kubeconfig
-          kubeconfig: ${{ env.KUBECONFIG_VALUE }}
+          kubeconfig: ${{ secrets.KUBECONFIG }}
 
       - name: Get Image Tag
         id: get_image_tag

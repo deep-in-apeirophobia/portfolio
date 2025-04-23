@@ -4,6 +4,6 @@ metadata:
   name: autodeploy-role
   namespace: portfolio
 rules:
-- apiGroups: ["", "apps", "extensions"]
-  resources: ["pods", "deployments", "services", "replicasets", "ingress"]
+- apiGroups: ["", "apps", "extensions", "networking.k8s.io"]
+  resources: ["pods", "deployments", "services", "replicasets", "ingresses", "secrets", "serviceaccounts"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]

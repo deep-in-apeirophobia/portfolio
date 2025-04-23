@@ -20,7 +20,7 @@ jobs:
     name: Build and Push React production image to github
     runs-on: ubuntu-latest
     outputs:
-      image_tag: ${{ steps.meta.outputs.tags }}
+      image_tags: ${{ steps.meta.outputs.tags }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -68,9 +68,11 @@ jobs:
 
       - name: Get Image Tag
         id: get_image_tag
+        env: 
+          IMAGE_TAGS: ${{ needs.build.outputs.image_tags }}
         run: |
-          echo "image_tag=$(echo '${{ needs.build.outputs.image_tag }}' | jq -r '.[0]')" >> "$GITHUB_OUTPUT"
-          echo '${{ needs.build.outputs.image_tag }}'
+          echo "image_tag=$(echo '$IMAGE_TAGS' | jq -r '.[0]')" >> "$GITHUB_OUTPUT"
+          echo '$IMAGE_TAGS'
 
       - name: Deploy to Kubernetes
         run: |

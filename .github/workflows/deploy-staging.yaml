@@ -52,7 +52,9 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             SENTRY_AUTH_TOKEN=${{ env.SENTRY_AUTH_TOKEN }}
+            NEXT_PUBLIC_POSTHOG_KEY=${{ env.NEXT_PUBLIC_POSTHOG_KEY }}
             SENTRY_ENVIRONMENT=staging
+            NODE_ENV=development
 
   deploy:
     needs: build

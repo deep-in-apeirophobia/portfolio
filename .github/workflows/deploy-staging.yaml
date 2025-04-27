@@ -71,8 +71,8 @@ jobs:
         env: 
           IMAGE_TAGS: ${{ needs.build.outputs.image_tags }}
         run: |
+          echo $IMAGE_TAGS
           echo "image_tag=$(echo '$IMAGE_TAGS' | jq -r '.[0]')" >> "$GITHUB_OUTPUT"
-          echo '$IMAGE_TAGS'
 
       - name: Deploy to Kubernetes
         run: |

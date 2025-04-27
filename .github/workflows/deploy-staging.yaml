@@ -52,6 +52,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             SENTRY_AUTH_TOKEN=${{ env.SENTRY_AUTH_TOKEN }}
+            SENTRY_ENVIRONMENT=staging
 
   deploy:
     needs: build
@@ -71,7 +72,6 @@ jobs:
         env: 
           IMAGE_TAGS: ${{ needs.build.outputs.image_tags }}
         run: |
-          echo $IMAGE_TAGS
           echo "image_tag=$(echo '$IMAGE_TAGS' | awk '{print $2}' | awk -F ':' '{print $2}')" >> "$GITHUB_OUTPUT"
 
       - name: Deploy to Kubernetes

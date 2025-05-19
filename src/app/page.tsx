@@ -76,8 +76,8 @@ export default function Home() {
 			<main className="w-full h-screen relative">
 				<HeaderBG />
 
-				<div className="w-full h-full p-12 md:py-[200px] md:px-[300px] grid grid-cols-1 md:grid-cols-12 grid-rows-12 md:grid-rows-6 gap-2">
-						<h1 className="max-md:z-20 text-7xl grid grid-cols-12 grid-rows-8 md:grid-rows-6 col-start-1 col-end-11 row-start-3 row-end-10 md:col-start-3 md:col-end-9 md:row-start-1 md:row-end-4 gap-3 md:gap-0">
+				<div className="w-full h-full p-12 md:py-[200px] md:px-[50px] 2xl:px-[150px] grid grid-cols-1 md:grid-cols-12 xl:grid-cols-12 grid-rows-12 md:grid-rows-6 gap-2">
+						<h1 className="max-md:z-20 text-6xl lg:text-7xl grid grid-cols-12 grid-rows-8 md:grid-rows-6 col-start-1 col-end-11 row-start-3 row-end-10 lg:col-start-2 xl:col-start-3 lg:col-end-12 xl:col-end-9 md:row-start-1 md:row-end-4 gap-3 md:gap-0 lg:min-h-[330px]">
 							<span className="">
 								Build
 							</span>
@@ -100,7 +100,7 @@ export default function Home() {
 								with ME
 							</span>
 						</h1>
-						<h3 className="max-md:z-20 max-md:col-span-10 col-start-2 row-start-11 md:col-start-6 md:col-end-11 md:row-start-4 text-3xl md:text-4xl self-center">
+						<h3 className="max-md:z-20 max-md:col-span-10 col-start-2 row-start-11 md:col-start-6 md:col-end-11 md:row-start-4 text-3xl md:text-4xl self-center lg:min-h-[80px]">
 							I&apos;m the Fullstack Dev you need <br className="max-md:hidden"/>
 							<span className="md:mx-12"/> to guide you in your journey
 						</h3>

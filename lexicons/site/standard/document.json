@@ -1,0 +1,75 @@
+{
+  "id": "site.standard.document",
+  "defs": {
+    "main": {
+      "key": "tid",
+      "type": "record",
+      "record": {
+        "type": "object",
+        "required": [
+          "site",
+          "title",
+          "publishedAt"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "combine with the publication url or the document site to construct a full url to the document"
+          },
+          "site": {
+            "type": "string",
+            "format": "uri",
+            "description": "URI to the site or publication this document belongs to (https or at-uri)"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "maxLength": 100,
+              "maxGraphemes": 50
+            }
+          },
+          "title": {
+            "type": "string",
+            "maxLength": 1280,
+            "maxGraphemes": 128
+          },
+          "content": {
+            "refs": [],
+            "type": "union",
+            "closed": false
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "datetime"
+          },
+          "coverImage": {
+            "type": "blob",
+            "accept": [
+              "image/*"
+            ],
+            "maxSize": 1000000
+          },
+          "bskyPostRef": {
+            "ref": "com.atproto.repo.strongRef",
+            "type": "ref"
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 3000,
+            "maxGraphemes": 300
+          },
+          "publishedAt": {
+            "type": "string",
+            "format": "datetime"
+          },
+          "textContent": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

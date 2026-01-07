@@ -1,0 +1,42 @@
+{
+  "id": "site.standard.theme.basic",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": [
+        "background",
+        "foreground",
+        "accent",
+        "accentForeground"
+      ],
+      "properties": {
+        "accent": {
+          "refs": [
+            "site.standard.theme.color#rgb"
+          ],
+          "type": "union"
+        },
+        "background": {
+          "refs": [
+            "site.standard.theme.color#rgb"
+          ],
+          "type": "union"
+        },
+        "foreground": {
+          "refs": [
+            "site.standard.theme.color#rgb"
+          ],
+          "type": "union"
+        },
+        "accentForeground": {
+          "refs": [
+            "site.standard.theme.color#rgb"
+          ],
+          "type": "union"
+        }
+      }
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

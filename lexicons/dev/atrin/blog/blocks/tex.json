@@ -1,0 +1,16 @@
+{
+  "id": "dev.atrin.blog.blocks.tex",
+  "defs": {
+    "main": {
+      "type": "object",
+      "required": ["tex"],
+      "properties": {
+        "tex": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$type": "com.atproto.lexicon.schema",
+  "lexicon": 1
+}

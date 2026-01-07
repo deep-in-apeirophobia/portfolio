@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Atma, Marck_Script, Space_Grotesk } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import Menu from "@/components/Menu";
 import { PostHogProvider } from "@/components/PostHogProvider";
 
@@ -12,13 +12,13 @@ const spaceGrotesk = Space_Grotesk({
 const atma = Atma({
   variable: "--font-atma",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700"]
+  weight: ["300", "400", "500", "700"],
 });
 
 const marckScript = Marck_Script({
   variable: "--font-marck-script",
-  weight: '400',
-  subsets: ['latin']
+  weight: "400",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {

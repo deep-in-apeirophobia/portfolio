@@ -136,6 +136,7 @@ export default function Home() {
 					<div className="flex gap-2">
 						<span>Email:</span>
 						<div className="flex flex-col items-start gap-2">
+							<Chip as="a" href="mailto:hi@atrin.dev">hi@atrin.dev</Chip>
 							<Chip as="a" href="mailto:atrin.hojjat@gmail.com">atrin.hojjat@gmail.com</Chip>
 							{/* <Chip as="a" href="mailto:finlayrogers213@outlook.com">finlayrogers213@outlook.com</Chip> */}
 						</div>

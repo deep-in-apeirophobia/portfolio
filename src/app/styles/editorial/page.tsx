@@ -22,10 +22,14 @@ function clean(str: string) {
 }
 
 function splitDescription(description: string) {
-	const paragraphs = description
-		.split('\n')
-		.map(clean)
-		.filter(Boolean)
+	// A newline only starts a new paragraph when the previous line ends a sentence;
+	// otherwise it is a stray line break in the source and the lines are rejoined.
+	const paragraphs: string[] = []
+	for (const line of description.split('\n').map(clean).filter(Boolean)) {
+		const prev = paragraphs[paragraphs.length - 1]
+		if (prev && !/[.!?)]$/.test(prev)) paragraphs[paragraphs.length - 1] = `${prev} ${line}`
+		else paragraphs.push(line)
+	}
 	const [first, ...rest] = paragraphs
 	// The first sentence becomes the standfirst; the remainder is the body copy.
 	const match = first.match(/^(.+?[.!?])\s+(.*)$/)
@@ -110,7 +114,7 @@ export default function EditorialPage() {
 				</p>
 				<p className={s.tagline}>
 					<span className={s.taglineRule} aria-hidden="true" />
-					A Journal of {PROFILE.role.replace('Full-stack', 'Full-Stack')} Work
+					A Journal of Full-Stack Development
 					<span className={s.taglineRule} aria-hidden="true" />
 				</p>
 				<nav aria-label="In this issue" className={s.nav}>
@@ -221,9 +225,11 @@ export default function EditorialPage() {
 								<p>“I’m ready to accompany you through this elusive path.”</p>
 							</blockquote>
 							<p className={s.question}>And the kind of project you want to be part of?</p>
-							<p className={s.answer}>{ABOUT[1]}</p>
-							<p className={s.endmark}>
-								<span aria-hidden="true">■</span>
+							<p className={s.answer}>
+								{ABOUT[1]}
+								<span className={s.endmark} aria-hidden="true">
+									■
+								</span>
 							</p>
 						</div>
 					</div>
@@ -267,7 +273,7 @@ export default function EditorialPage() {
 							</figcaption>
 						</figure>
 						<div className={s.leadBody}>
-							<div className={s.columns3}>
+							<div className={s.leadText}>
 								{leadCopy.body.map((p, i) => (
 									<p key={i} className={i === 0 ? s.dropcap : undefined}>
 										{p}
@@ -320,7 +326,6 @@ export default function EditorialPage() {
 									<h3 id={`feature-${n - 1}`} className={s.featureHeadline}>
 										{project.name}
 									</h3>
-									<p className={s.standfirst}>{copy.standfirst}</p>
 								</header>
 								<figure className={s.featureFigure}>
 									<Image
@@ -335,15 +340,18 @@ export default function EditorialPage() {
 									</figcaption>
 								</figure>
 								<div className={s.featureBody}>
-									<div className={s.columns2}>
+									<p className={`${s.standfirst} ${s.featureStandfirst}`}>{copy.standfirst}</p>
+									<div className={s.featureText}>
 										{copy.body.map((p, j) => (
 											<p key={j} className={j === 0 ? s.dropcap : undefined}>
 												{p}
+												{j === copy.body.length - 1 && (
+													<span className={s.endmark} aria-hidden="true">
+														■
+													</span>
+												)}
 											</p>
 										))}
-										<p className={s.endmark}>
-											<span aria-hidden="true">■</span>
-										</p>
 									</div>
 									<StackList stack={project.stack} />
 									{project.link && (
@@ -371,7 +379,7 @@ export default function EditorialPage() {
 						<h2 id="corr-title" className={s.corrHeadline}>
 							Letters to <em>the Developer</em>
 						</h2>
-						<p className={`${s.corrLede} ${s.dropcap}`}>
+						<p className={s.corrLede}>
 							{PROFILE.footerPitch[0]} {PROFILE.footerPitch[1]}
 						</p>
 						<dl className={s.addresses}>

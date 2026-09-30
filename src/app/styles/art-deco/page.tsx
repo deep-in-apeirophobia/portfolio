@@ -15,7 +15,7 @@ const ROMAN = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']
 
 function paragraphs(text: string): string[] {
 	return text
-		.split(/\n\s*\n|\n/)
+		.split(/(?<=[.!?])\s*\n\s*/) // break paragraphs only after a full sentence
 		.map((p) => p.replace(/\s+/g, ' ').trim())
 		.filter(Boolean)
 }
@@ -31,10 +31,10 @@ function Corners() {
 	)
 }
 
-function SectionTitle({ numeral, kicker, title, id }: { numeral: string, kicker: string, title: string, id: string }) {
+function SectionTitle({ numeral, kicker, title, id, fan = true }: { numeral: string, kicker: string, title: string, id: string, fan?: boolean }) {
 	return (
 		<header className={s.sectionTitle}>
-			<Fan className={s.titleFan} rays={13} />
+			{fan && <Fan className={s.titleFan} rays={13} />}
 			<p className={s.kicker}>
 				<span aria-hidden="true" className={s.kickerRule} />
 				<span>{numeral}</span>
@@ -196,7 +196,7 @@ export default function ArtDecoPage() {
 			{/* ───────────── CONTACT ───────────── */}
 			<footer className={s.contact} id="contact" aria-labelledby="contact-title">
 				<Ziggurat className={s.ziggurat} />
-				<SectionTitle id="contact-title" numeral="III" kicker="Correspondence" title="Get in Touch" />
+				<SectionTitle id="contact-title" numeral="III" kicker="Correspondence" title="Get in Touch" fan={false} />
 
 				<div className={s.pitch}>
 					{PROFILE.footerPitch.map((line) => <p key={line}>{line}</p>)}
@@ -228,9 +228,9 @@ export default function ArtDecoPage() {
 				<div className={s.tech}>
 					<h3 className={s.stackLabel}>Crafted With</h3>
 					<ul>
-						{TECH_FOOTER.map((t, i) => (
+						{TECH_FOOTER.map((t) => (
 							<li key={t}>
-								{i > 0 && <Lozenge className={s.techLozenge} />}
+								<Lozenge className={s.techLozenge} />
 								{t}
 							</li>
 						))}

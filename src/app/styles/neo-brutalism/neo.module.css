@@ -1,0 +1,125 @@
+/* Neo-Brutalism: page-scoped tokens and a few effects Tailwind can't express neatly. */
+
+.page {
+	--ink: #111111;
+	--cream: #fffaf0;
+	--yellow: #ffd23f;
+	--pink: #ff90e8;
+	--mint: #7ef0c1;
+	--peri: #a5a6ff;
+	--orange: #ff7a45;
+	background-color: var(--cream);
+	color: var(--ink);
+	font-family: var(--nb-body), ui-sans-serif, system-ui, sans-serif;
+	overflow-x: clip;
+}
+
+.display {
+	font-family: var(--nb-display), ui-sans-serif, sans-serif;
+	letter-spacing: -0.02em;
+}
+
+.mono {
+	font-family: var(--nb-mono), ui-monospace, monospace;
+}
+
+/* Visible graph-paper grid, like a FigJam canvas. */
+.grid {
+	background-image:
+		linear-gradient(to right, rgba(17, 17, 17, 0.09) 1px, transparent 1px),
+		linear-gradient(to bottom, rgba(17, 17, 17, 0.09) 1px, transparent 1px);
+	background-size: 40px 40px;
+	background-position: -1px -1px;
+}
+
+/* Dot grid variant for the contact panel. */
+.dots {
+	background-image: radial-gradient(rgba(17, 17, 17, 0.28) 1.5px, transparent 1.6px);
+	background-size: 18px 18px;
+}
+
+/* Hard, blur-free offset shadows and the "press" interaction. */
+.shadow {
+	box-shadow: 4px 4px 0 0 var(--ink);
+}
+.shadowLg {
+	box-shadow: 8px 8px 0 0 var(--ink);
+}
+
+.press {
+	box-shadow: 4px 4px 0 0 var(--ink);
+	transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+}
+.press:hover {
+	transform: translate(2px, 2px);
+	box-shadow: 2px 2px 0 0 var(--ink);
+}
+.press:active {
+	transform: translate(4px, 4px);
+	box-shadow: 0 0 0 0 var(--ink);
+}
+
+/* Cards lift toward the viewer on hover (shadow grows). */
+.lift {
+	box-shadow: 6px 6px 0 0 var(--ink);
+	transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.lift:hover {
+	transform: translate(-3px, -3px);
+	box-shadow: 9px 9px 0 0 var(--ink);
+}
+
+.focus:focus-visible,
+.page a:focus-visible,
+.page button:focus-visible {
+	outline: 3px solid var(--ink);
+	outline-offset: 3px;
+	background-color: var(--yellow);
+}
+
+/* Marquee band */
+.marquee {
+	display: flex;
+	width: max-content;
+	animation: marquee 28s linear infinite;
+}
+.marqueeReverse {
+	animation-direction: reverse;
+}
+@keyframes marquee {
+	from { transform: translateX(0); }
+	to { transform: translateX(-50%); }
+}
+
+/* Little wobble for stickers */
+.wobble {
+	animation: wobble 3.2s ease-in-out infinite;
+}
+@keyframes wobble {
+	0%, 100% { transform: rotate(-6deg); }
+	50% { transform: rotate(4deg); }
+}
+
+.spin {
+	animation: spin 14s linear infinite;
+}
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+
+/* Thick marker-style highlight behind words */
+.underline {
+	background-image: linear-gradient(transparent 62%, var(--pink) 62%, var(--pink) 92%, transparent 92%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.marquee,
+	.wobble,
+	.spin {
+		animation: none;
+	}
+	.press,
+	.lift {
+		transition: none;
+	}
+}

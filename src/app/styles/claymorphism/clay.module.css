@@ -1,0 +1,244 @@
+/* ============================================================
+   Claymorphism
+   The core recipe (after Michał Malewicz, 2021):
+   1. a big, soft, *coloured* outer drop shadow → the object floats
+   2. an inset dark shadow bottom-right          → the belly curves away
+   3. an inset white shadow top-left             → light catches the top
+   4. very large radii                            → it is inflated
+   Every surface below is a variation of that one material.
+   ============================================================ */
+
+.page {
+	/* palette */
+	--ink: #3a2a5d;
+	--ink-soft: #5e4f82;
+	--bg: #f6efff;
+	--lilac: #c7b3ff;
+	--lilac-d: 116 84 214;
+	--peach: #ffc2a8;
+	--peach-d: 222 110 84;
+	--mint: #a8ecd2;
+	--mint-d: 58 170 132;
+	--sky: #aad8ff;
+	--sky-d: 70 142 222;
+	--butter: #ffe68f;
+	--butter-d: 214 160 40;
+	--pink: #ffb8da;
+	--pink-d: 220 90 150;
+
+	font-family: var(--clay-body), ui-rounded, system-ui, sans-serif;
+	color: var(--ink);
+	background:
+		radial-gradient(40rem 32rem at 8% 4%, #ffe3f1 0%, transparent 70%),
+		radial-gradient(44rem 36rem at 96% 18%, #dff3ff 0%, transparent 70%),
+		radial-gradient(40rem 40rem at 15% 55%, #e4fbef 0%, transparent 70%),
+		radial-gradient(44rem 36rem at 92% 78%, #fff3d0 0%, transparent 70%),
+		var(--bg);
+	overflow-x: clip;
+}
+
+.display {
+	font-family: var(--clay-display), ui-rounded, system-ui, sans-serif;
+}
+
+/* ---------- the clay material ---------- */
+.clay {
+	--c: var(--lilac);
+	--d: var(--lilac-d);
+	--r: 40px;
+	--lift: 1;
+	background: var(--c);
+	border-radius: var(--r);
+	box-shadow:
+		0 calc(22px * var(--lift)) calc(44px * var(--lift)) calc(-10px * var(--lift)) rgb(var(--d) / 0.45),
+		0 calc(6px * var(--lift)) calc(12px * var(--lift)) rgb(var(--d) / 0.12),
+		inset -10px -12px 22px rgb(var(--d) / 0.38),
+		inset 10px 12px 18px rgb(255 255 255 / 0.75);
+}
+
+.page .clayWhite { --c: #fffaff; --d: var(--lilac-d); }
+.page .lilac { --c: var(--lilac); --d: var(--lilac-d); }
+.page .peach { --c: var(--peach); --d: var(--peach-d); }
+.page .mint { --c: var(--mint); --d: var(--mint-d); }
+.page .sky { --c: var(--sky); --d: var(--sky-d); }
+.page .butter { --c: var(--butter); --d: var(--butter-d); }
+.page .pink { --c: var(--pink); --d: var(--pink-d); }
+
+.sm {
+	--r: 999px;
+	--lift: 0.5;
+	box-shadow:
+		0 10px 18px -6px rgb(var(--d) / 0.5),
+		inset -4px -5px 9px rgb(var(--d) / 0.4),
+		inset 4px 5px 8px rgb(255 255 255 / 0.8);
+}
+
+/* A tray pressed *into* the clay (used for image wells). */
+.well {
+	position: relative;
+	border-radius: 30px;
+	background: rgb(var(--d) / 0.18);
+	padding: 12px;
+	box-shadow:
+		inset 6px 8px 14px rgb(var(--d) / 0.35),
+		inset -6px -6px 12px rgb(255 255 255 / 0.55);
+}
+.wellImg {
+	position: relative;
+	overflow: hidden;
+	border-radius: 22px;
+}
+.wellImg::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	pointer-events: none;
+	box-shadow:
+		inset 0 0 0 3px rgb(255 255 255 / 0.55),
+		inset -8px -10px 18px rgb(var(--d) / 0.35),
+		inset 8px 10px 18px rgb(255 255 255 / 0.35);
+}
+
+/* ---------- interaction: squishy, bouncy ---------- */
+.bouncy {
+	transition:
+		transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+		box-shadow 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.bouncy:hover {
+	transform: translateY(-5px) scale(1.04);
+}
+.bouncy:active {
+	transform: translateY(2px) scale(0.96, 0.93);
+	box-shadow:
+		0 4px 8px -4px rgb(var(--d) / 0.5),
+		inset -3px -3px 8px rgb(var(--d) / 0.25),
+		inset 6px 8px 14px rgb(var(--d) / 0.35);
+	transition-duration: 0.12s;
+}
+.cardHover {
+	transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.cardHover:hover {
+	transform: translateY(-8px) rotate(-0.4deg);
+}
+
+.focus:focus-visible {
+	outline: 4px solid var(--ink);
+	outline-offset: 5px;
+}
+
+/* ---------- 3D primitives ---------- */
+.sphere {
+	--c: var(--lilac);
+	--d: var(--lilac-d);
+	border-radius: 50%;
+	background:
+		radial-gradient(circle at 32% 28%, rgb(255 255 255 / 0.95) 0 6%, rgb(255 255 255 / 0) 30%),
+		radial-gradient(circle at 40% 38%, var(--c) 0 45%, rgb(var(--d)) 120%);
+	box-shadow:
+		0 26px 40px -14px rgb(var(--d) / 0.55),
+		inset -10px -14px 24px rgb(var(--d) / 0.45);
+}
+
+/* ---------- ornament motion ---------- */
+@keyframes bob {
+	0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+	50% { transform: translateY(-14px) rotate(calc(var(--rot, 0deg) + 4deg)); }
+}
+@keyframes squish {
+	0%, 100% { transform: scale(1, 1); }
+	45% { transform: scale(1.06, 0.94); }
+	60% { transform: scale(0.97, 1.03); }
+}
+.float { animation: bob 6s ease-in-out infinite; }
+.floatSlow { animation: bob 8.5s ease-in-out infinite; animation-delay: -2s; }
+.floatAlt { animation: bob 7s ease-in-out infinite; animation-delay: -4s; }
+.squish { animation: squish 3.2s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+	.float, .floatSlow, .floatAlt, .squish { animation: none; }
+	.bouncy, .cardHover { transition: none; }
+	.bouncy:hover, .cardHover:hover { transform: none; }
+}
+
+/* ---------- clay laptop ---------- */
+.laptopLid {
+	position: relative;
+	border-radius: 34px 34px 18px 18px;
+	background: #fffaff;
+	padding: 14px;
+	box-shadow:
+		0 24px 40px -14px rgb(116 84 214 / 0.45),
+		inset -8px -10px 18px rgb(116 84 214 / 0.3),
+		inset 8px 10px 16px rgb(255 255 255 / 0.9);
+}
+.laptopScreen {
+	border-radius: 22px 22px 10px 10px;
+	background: linear-gradient(160deg, #8f79f0, #6a55d6);
+	box-shadow:
+		inset 6px 8px 16px rgb(40 20 110 / 0.5),
+		inset -4px -4px 10px rgb(255 255 255 / 0.18);
+}
+.laptopBase {
+	position: relative;
+	height: 30px;
+	margin: -4px -22px 0;
+	border-radius: 14px 14px 40px 40px;
+	background: #fffaff;
+	box-shadow:
+		0 26px 34px -14px rgb(116 84 214 / 0.55),
+		inset -10px -10px 16px rgb(116 84 214 / 0.3),
+		inset 8px 8px 12px rgb(255 255 255 / 0.9);
+}
+.laptopBase::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 6px;
+	width: 22%;
+	height: 9px;
+	translate: -50% 0;
+	border-radius: 999px;
+	box-shadow: inset 2px 3px 5px rgb(116 84 214 / 0.35), inset -2px -2px 4px rgb(255 255 255 / 0.9);
+}
+
+.codeBar {
+	height: 12px;
+	border-radius: 999px;
+	box-shadow: inset -2px -3px 4px rgb(0 0 0 / 0.15), inset 2px 3px 4px rgb(255 255 255 / 0.55);
+}
+
+/* ---------- avatar frame (a clay donut) ---------- */
+.donut {
+	border-radius: 50%;
+	padding: 18px;
+	background:
+		radial-gradient(circle at 30% 25%, rgb(255 255 255 / 0.9) 0 5%, rgb(255 255 255 / 0) 22%),
+		radial-gradient(circle at 45% 40%, #ffd3bf 0 50%, rgb(222 110 84) 115%);
+	box-shadow:
+		0 30px 50px -16px rgb(222 110 84 / 0.55),
+		inset -12px -16px 26px rgb(222 110 84 / 0.5),
+		inset 10px 12px 20px rgb(255 255 255 / 0.6);
+}
+.donutHole {
+	border-radius: 50%;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 0 0 5px rgb(255 255 255 / 0.35);
+}
+.donutHole::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	box-shadow: inset 10px 14px 22px rgb(120 40 20 / 0.45), inset -6px -6px 14px rgb(255 255 255 / 0.25);
+}
+
+/* soft floor shadow under floating objects */
+.floor {
+	border-radius: 50%;
+	background: radial-gradient(closest-side, rgb(116 84 214 / 0.28), transparent);
+	filter: blur(2px);
+}

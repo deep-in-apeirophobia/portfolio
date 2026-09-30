@@ -12,10 +12,17 @@ export const metadata: Metadata = {
 }
 
 function paragraphs(text: string) {
+	// Split on blank lines, but re-join fragments that were broken mid-sentence.
 	return text
 		.split(/\n\s*\n/)
 		.map(p => p.replace(/\s+/g, ' ').trim())
 		.filter(Boolean)
+		.reduce<string[]>((acc, p) => {
+			const prev = acc[acc.length - 1]
+			if (prev && !/[.!?]$/.test(prev)) acc[acc.length - 1] = `${prev} ${p}`
+			else acc.push(p)
+			return acc
+		}, [])
 }
 
 const NAV = [
@@ -118,7 +125,7 @@ export default function Y2KPage() {
 										<div>
 											<p className={s.welcomeName}>{PROFILE.name}</p>
 											<p className={s.welcomeMeta}>{PROFILE.role}</p>
-											<p className={s.welcomeMeta}>{PROJECTS.length} featured projects · {TECH_FOOTER.length}+ technologies</p>
+											<p className={s.welcomeMeta}>{PROJECTS.length} featured projects · {TECH_FOOTER.length} core technologies</p>
 										</div>
 									</div>
 									<p className={s.getStarted}>Get started with Atrin</p>
@@ -138,6 +145,7 @@ export default function Y2KPage() {
 
 				{/* ---------- About ---------- */}
 				<section id="about" className={s.section} aria-labelledby="about-title">
+					<Bubbles items={[{ x: '90%', y: '8%', size: 36 }, { x: '95%', y: '30%', size: 16 }, { x: '40%', y: '4%', size: 20 }]} />
 					<div className={s.sectionHead}>
 						<Orb icon="user" color="blue" size="lg" />
 						<div>
@@ -165,6 +173,12 @@ export default function Y2KPage() {
 
 				{/* ---------- Projects ---------- */}
 				<section id="projects" className={`${s.section} ${s.projectsSection}`} aria-labelledby="projects-title">
+					<Aurora className={s.midAurora} />
+					<Aurora className={s.midAurora2} />
+					<Bubbles items={[
+						{ x: '-2%', y: '6%', size: 40 }, { x: '97%', y: '18%', size: 28 }, { x: '48%', y: '33%', size: 18 },
+						{ x: '-1%', y: '52%', size: 24 }, { x: '96%', y: '70%', size: 44 }, { x: '50%', y: '88%', size: 22 },
+					]} />
 					<div className={s.sectionHead}>
 						<Orb icon="folder" color="orange" size="lg" />
 						<div>

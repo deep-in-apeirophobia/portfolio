@@ -14,6 +14,13 @@ function paragraphs(text: string): string[] {
 		.split(/\n\s*\n/)
 		.map(p => p.replace(/\s+/g, ' ').trim())
 		.filter(Boolean)
+		// A blank line in the source is only a real paragraph break if the sentence has ended.
+		.reduce<string[]>((acc, p) => {
+			const prev = acc[acc.length - 1]
+			if (prev && !/[.!?]$/.test(prev)) acc[acc.length - 1] = `${prev} ${p}`
+			else acc.push(p)
+			return acc
+		}, [])
 }
 
 const NAV = [
@@ -37,7 +44,7 @@ function SectionHead({ n, title, id, dark = false }: { n: string, title: string,
 			<p aria-hidden className={`col-span-1 text-[clamp(4rem,11vw,10rem)] font-bold leading-[0.8] tracking-[-0.06em] ${RED} md:col-span-3`}>
 				{n}
 			</p>
-			<h2 id={id} className="col-span-3 scroll-mt-24 self-end text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.85] tracking-[-0.045em] md:col-span-9 md:col-start-4">
+			<h2 id={id} className="col-span-3 scroll-mt-24 self-end md:scroll-mt-44 text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.85] tracking-[-0.045em] md:col-span-9 md:col-start-4">
 				<span className="sr-only">{n}. </span>{title}
 			</h2>
 		</div>
@@ -52,7 +59,7 @@ export default function SwissPage() {
 			</a>
 
 			{/* ——— Masthead: four information columns, no logo, no ornament ——— */}
-			<header className="sticky top-0 z-50 bg-white/95 px-4 backdrop-blur-sm md:px-8">
+			<header className="sticky top-0 z-50 bg-white px-4 md:px-8">
 				<div className={`${GRID} border-b border-black py-3 text-[13px] font-medium leading-[1.25] md:text-[14px]`}>
 					<p className="col-span-2 font-bold md:col-span-3">
 						<a href="#top" className={FOCUS}>{PROFILE.name}</a>
@@ -96,7 +103,7 @@ export default function SwissPage() {
 
 					<h1 id="hero-title" className="my-auto py-10 md:py-8">
 						<span className="sr-only">{PROFILE.name}, {PROFILE.role}. </span>
-						<span className={`${GRID} text-[clamp(3.6rem,16.5vw,6rem)] font-bold leading-[0.86] tracking-[-0.055em] md:text-[clamp(4rem,9.6vw,11rem)] md:leading-[0.84]`}>
+						<span className={`${GRID} text-[clamp(3.6rem,16.5vw,6rem)] font-bold leading-[0.86] tracking-[-0.055em] md:text-[clamp(4rem,10.4vw,12rem)] md:leading-[0.87]`}>
 							{HERO_LINES.map(line => (
 								<span
 									key={line.text}
@@ -113,11 +120,11 @@ export default function SwissPage() {
 							<p className="text-[13px] text-black/55">Name</p>
 							<p className="font-bold">{PROFILE.name}</p>
 						</div>
-						<div className="col-span-2 md:col-span-2">
+						<div className="col-span-2 md:col-span-2 md:col-start-4">
 							<p className="text-[13px] text-black/55">Role</p>
 							<p className="font-bold">{PROFILE.role}</p>
 						</div>
-						<p className="col-span-4 max-w-[34ch] md:col-span-4 md:col-start-5">
+						<p className="col-span-4 max-w-[34ch] md:col-span-3 md:col-start-7">
 							{PROFILE.heroTagline}.
 						</p>
 						<p className="col-span-4 md:col-span-3 md:col-start-10 md:text-right">

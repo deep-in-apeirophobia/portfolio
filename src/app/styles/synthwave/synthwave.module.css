@@ -100,7 +100,7 @@
 	font-size: 1.75rem;
 	line-height: 1;
 	color: var(--pink);
-	text-shadow: 0 0 4px #fff, 0 0 10px var(--pink), 0 0 22px var(--pink);
+	text-shadow: 0 0 1px #fff, 0 0 6px var(--pink), 0 0 16px rgba(255, 42, 109, 0.7);
 }
 .brandSub {
 	font-family: var(--sw-vhs);
@@ -149,10 +149,10 @@
 	position: absolute;
 	inset: 0;
 	overflow: hidden;
-	--horizon: 60%;
+	--horizon: 70%;
 	background: linear-gradient(
 		to bottom,
-		#0d0221 0%,
+		var(--sky-top, #0d0221) 0%,
 		#1f0540 22%,
 		#4a0a6b 42%,
 		#9b1b7c 54%,
@@ -161,9 +161,10 @@
 	);
 }
 .sceneSmall {
+	--sky-top: #1f0540;
 	top: auto;
 	height: 420px;
-	--horizon: 52%;
+	--horizon: 62%;
 }
 .stars {
 	position: absolute;
@@ -226,8 +227,8 @@
 	);
 }
 .sceneSmall .sun {
-	width: min(60vw, 360px);
-	transform: translate(-50%, 50%);
+	width: min(60vw, 300px);
+	transform: translate(-50%, 22%);
 }
 .mountains {
 	position: absolute;
@@ -311,7 +312,7 @@
 	animation: blink 1.2s steps(2, jump-none) infinite;
 }
 @keyframes blink {
-	50% { opacity: 0.2; }
+	50% { opacity: 0.45; }
 }
 
 /* ── Hero ── */
@@ -409,7 +410,7 @@
 }
 .heroMessage {
 	margin: 28px 0 0;
-	max-width: 22ch;
+	max-width: 34ch;
 	font-family: var(--sw-orbitron);
 	font-weight: 700;
 	font-size: clamp(1.15rem, 2.6vw, 1.9rem);
@@ -417,18 +418,27 @@
 	letter-spacing: 0.06em;
 	text-transform: uppercase;
 	color: #fff;
-	text-shadow: 0 0 10px rgba(5, 217, 232, 0.55);
+	text-shadow: 0 2px 0 #1a0536, 0 0 10px rgba(5, 217, 232, 0.55);
 }
 .heroMessage em {
 	font-style: normal;
 	color: var(--cyan);
-	text-shadow: 0 0 6px var(--cyan), 0 0 20px var(--cyan);
+	text-shadow: 0 2px 0 #1a0536, 0 -1px 0 #1a0536, 0 0 6px var(--cyan), 0 0 20px var(--cyan);
+}
+.heroLower {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 48px 24px;
+	background: radial-gradient(ellipse 60% 70% at 50% 72%, rgba(13, 2, 33, 0.8) 0%, rgba(13, 2, 33, 0.5) 45%, rgba(13, 2, 33, 0) 75%);
 }
 .heroTagline {
 	margin: 14px 0 0;
-	max-width: 40ch;
-	font-size: 1.05rem;
-	color: var(--muted);
+	max-width: 44ch;
+	font-size: 1.15rem;
+	color: #e6dcff;
+	text-shadow: 0 1px 2px #0d0221, 0 0 12px #0d0221;
 }
 .heroCtas {
 	margin-top: 26px;
@@ -904,8 +914,11 @@
 	.osdRight { right: 16px; }
 	.heroInner { padding-top: 64px; }
 	.kicker { letter-spacing: 0.3em; }
-	.scene { --horizon: 64%; }
-	.sceneSmall { --horizon: 52%; }
+	.scene { --horizon: 58%; }
+	.heroLower { padding: 0 8px 24px; }
+	.script { margin-top: -0.3em; transform: rotate(-7deg) translateX(4%); }
+	.heroMessage { margin-top: 20px; }
+	.sceneSmall { --horizon: 62%; }
 	.sun { width: 78vw; }
 	.section { padding: 80px 0; }
 	.panel { padding: 30px 20px 22px; }

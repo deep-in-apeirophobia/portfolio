@@ -11,10 +11,18 @@ export const metadata: Metadata = {
 }
 
 function paragraphs(text: string): string[] {
-	return text
+	// Split on blank lines, but only start a new paragraph after a finished sentence
+	// (the source has stray blank lines mid-sentence).
+	const chunks = text
 		.split(/\n\s*\n/)
 		.map((p) => p.replace(/\s+/g, ' ').trim())
 		.filter(Boolean)
+	return chunks.reduce<string[]>((out, chunk) => {
+		const prev = out[out.length - 1]
+		if (prev && !/[.!?]$/.test(prev)) out[out.length - 1] = `${prev} ${chunk}`
+		else out.push(chunk)
+		return out
+	}, [])
 }
 
 const NAV = [
@@ -110,6 +118,7 @@ export default function SynthwavePage() {
 							<span className={s.chrome} data-text={lastName}>{lastName}</span>
 							<span className={s.script}>{PROFILE.role}</span>
 						</h1>
+						<div className={s.heroLower}>
 						<p className={s.heroMessage}>
 							Build <em>vibrant</em>, <em>fast</em> and <em>scalable</em> web apps with me
 						</p>
@@ -117,6 +126,7 @@ export default function SynthwavePage() {
 						<div className={s.heroCtas}>
 							<a href="#projects" className={s.btnPrimary}>Press Play ▶</a>
 							<a href="#contact" className={s.btnGhost}>Get in touch</a>
+						</div>
 						</div>
 					</div>
 				</section>

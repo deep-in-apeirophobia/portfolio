@@ -52,9 +52,9 @@ export default function MemphisPage() {
 			{/* ================= HEADER / NAV ================= */}
 			<header className={cx(s.terrazzo, 'relative z-20 border-b-[3px] border-black')}>
 				<div className="mx-auto flex max-w-[1320px] flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-8">
-					<a href="#top" className="group flex items-center gap-3" aria-label="Atrin Hojjat, back to top">
+					<a href="#top" className="group flex items-center gap-4" aria-label="Atrin Hojjat, back to top">
 						<span className={cx(s.display, s.outline, s.hardSm, 'grid h-12 w-12 place-items-center rounded-full bg-[#2f4bff] text-lg text-white transition-transform group-hover:rotate-12')}>A</span>
-						<span className={cx(s.display, 'hidden text-sm sm:inline')}>Atrin&nbsp;H.</span>
+						<span className={cx(s.display, 'hidden -rotate-2 rounded-md border-[3px] border-black bg-white px-2 py-0.5 text-sm sm:inline')}>Atrin&nbsp;H.</span>
 					</a>
 					<nav aria-label="Sections">
 						<ul className="flex flex-wrap items-center gap-2 sm:gap-4">
@@ -117,7 +117,7 @@ export default function MemphisPage() {
 										</span>
 									))}
 								</p>
-								<p className="mt-4 max-w-[46ch] text-lg font-medium leading-relaxed">{PROFILE.heroTagline}.</p>
+								<p className="mt-4 max-w-[52ch] text-lg font-medium leading-relaxed">{PROFILE.heroTagline}.</p>
 								<div className="mt-6 flex flex-wrap gap-4">
 									<a href="#projects" className={cx(s.btn, 'rounded-full bg-[#2f4bff] px-6 py-3 font-extrabold uppercase text-white')}>
 										See the work <span aria-hidden="true">→</span>
@@ -130,7 +130,7 @@ export default function MemphisPage() {
 						</div>
 
 						{/* ---- sculpture: a Peter Shire-ish totem of shapes ---- */}
-						<div aria-hidden="true" className="relative mx-auto h-[420px] w-full max-w-[520px] sm:h-[520px] lg:h-auto lg:min-h-[640px]">
+						<div aria-hidden="true" className="relative mx-auto h-[340px] w-full max-w-[400px] sm:h-[520px] sm:max-w-[520px] lg:h-auto lg:min-h-[640px]">
 							{/* big dotted sun */}
 							<div className={cx(s.dots, s.outline, 'absolute right-[4%] top-[2%] h-[46%] w-[58%] rounded-full')} style={{ aspectRatio: '1' }} />
 							{/* grid slab */}
@@ -192,6 +192,7 @@ export default function MemphisPage() {
 						<div className="mt-12 grid items-start gap-12 lg:grid-cols-[380px_1fr] lg:gap-16">
 							{/* photo */}
 							<figure className="relative mx-auto w-[260px] sm:w-[320px]">
+								<div className="relative">
 								<div className={cx(s.zigzag, s.outline, 'absolute -inset-5 rounded-full')} aria-hidden="true" />
 								<div className={cx(s.bacterio, s.outline, 'absolute -bottom-8 -left-10 h-28 w-28 rotate-12')} aria-hidden="true" />
 								<div className="absolute -right-6 -top-8 h-20 w-20 rotate-[20deg]" style={{ ['--tri-fill' as string]: '#19c3b8' }} aria-hidden="true">
@@ -199,6 +200,7 @@ export default function MemphisPage() {
 								</div>
 								<div className={cx(s.outline, 'relative aspect-square overflow-hidden rounded-full bg-[#ff5fa2]')}>
 									<Image src={PROFILE.photo} alt={`Portrait of ${PROFILE.name}`} fill sizes="320px" className="object-cover" priority={false} />
+								</div>
 								</div>
 								<figcaption className={cx(s.display, s.outline, s.hardSm, 'relative mx-auto mt-10 w-fit rotate-[-3deg] bg-[#ffd426] px-4 py-1 text-sm uppercase')}>
 									{PROFILE.name}
@@ -300,7 +302,7 @@ export default function MemphisPage() {
 						<div className={cx(s.dots, s.outline, 'pointer-events-none absolute -left-4 -top-10 hidden h-40 w-40 rounded-full sm:block')} aria-hidden="true" />
 						<Lightning className="pointer-events-none absolute -right-2 -top-12 hidden w-20 rotate-[16deg] sm:block" fill="#19c3b8" />
 
-						<div className={cx(s.outline, 'relative -rotate-[0.8deg] rounded-[32px] bg-[#ffd426] p-6 shadow-[12px_12px_0_#ff5fa2] sm:p-12')}>
+						<div className={cx(s.outline, 'relative -rotate-[0.8deg] rounded-[32px] bg-[#ffd426] p-6 shadow-[7px_7px_0_#ff5fa2] sm:shadow-[12px_12px_0_#ff5fa2] sm:p-12')}>
 							<h2 id="contact-title" className={cx(s.display, 'text-[clamp(2.4rem,7vw,5rem)] uppercase')}>
 								Let&rsquo;s talk!
 							</h2>

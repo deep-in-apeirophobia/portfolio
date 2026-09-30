@@ -89,7 +89,8 @@
 .terrazzo {
 	background-color: var(--paper);
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg stroke='%23111' stroke-width='1.5'%3E%3Cpath fill='%23ff5fa2' d='M20 18l14 4-6 11z'/%3E%3Cpath fill='%2319c3b8' d='M150 30l12-6 4 12-10 3z'/%3E%3Cpath fill='%23ffd426' d='M92 96l9-9 7 10-8 6z'/%3E%3Cpath fill='%23b9a3ff' d='M184 120l13 3-3 12-11-4z'/%3E%3Cpath fill='%232f4bff' d='M40 150l8 10-12 3z'/%3E%3Cpath fill='%23ff4a1c' d='M130 186l10-3 1 9z'/%3E%3Cpath fill='%23a6ecd0' d='M70 40l7 2-2 8-7-3z'/%3E%3C/g%3E%3Cg fill='%23111'%3E%3Ccircle cx='60' cy='88' r='2.5'/%3E%3Ccircle cx='118' cy='56' r='2'/%3E%3Ccircle cx='168' cy='80' r='2.5'/%3E%3Ccircle cx='100' cy='150' r='2'/%3E%3Ccircle cx='200' cy='190' r='2.5'/%3E%3Ccircle cx='20' cy='200' r='2'/%3E%3Ccircle cx='150' cy='140' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
-	background-size: 220px 220px;
+	background-size: 270px 270px;
+	background-position: 37px 11px;
 }
 
 /* ---------------- Objects ---------------- */

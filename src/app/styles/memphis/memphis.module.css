@@ -1,0 +1,208 @@
+/* ------------------------------------------------------------------
+   Memphis Design — patterns, shapes and furniture for the page.
+   All textures are CSS gradients or inline SVG data URIs.
+------------------------------------------------------------------- */
+
+.page {
+	--ink: #111111;
+	--paper: #fff7e8;
+	--pink: #ff5fa2;
+	--turq: #19c3b8;
+	--yellow: #ffd426;
+	--blue: #2f4bff;
+	--red: #ff4a1c;
+	--lilac: #b9a3ff;
+	--mint: #a6ecd0;
+	--peach: #ffc7b0;
+	background-color: var(--paper);
+	color: var(--ink);
+	font-family: var(--mph-body), system-ui, sans-serif;
+	overflow-x: clip;
+}
+
+.display {
+	font-family: var(--mph-display), system-ui, sans-serif;
+	letter-spacing: -0.02em;
+	line-height: 0.95;
+}
+
+.script {
+	font-family: var(--mph-script), cursive;
+}
+
+/* ---------------- Patterns ---------------- */
+
+.dots {
+	background-color: var(--yellow);
+	background-image: radial-gradient(var(--ink) 2.2px, transparent 2.8px);
+	background-size: 16px 16px;
+}
+
+.dotsPink {
+	background-color: var(--pink);
+	background-image: radial-gradient(var(--ink) 2px, transparent 2.6px);
+	background-size: 14px 14px;
+}
+
+.grid {
+	background-color: #ffffff;
+	background-image:
+		linear-gradient(var(--ink) 2px, transparent 2px),
+		linear-gradient(90deg, var(--ink) 2px, transparent 2px);
+	background-size: 18px 18px;
+	background-position: -1px -1px;
+}
+
+.stripes {
+	background: repeating-linear-gradient(-45deg, var(--ink) 0 6px, var(--turq) 6px 16px);
+}
+
+.stripesPink {
+	background: repeating-linear-gradient(90deg, var(--ink) 0 5px, var(--pink) 5px 14px);
+}
+
+.zigzag {
+	--zz: 14px;
+	background:
+		linear-gradient(135deg, var(--ink) 25%, transparent 25%) calc(var(--zz) * -1) 0,
+		linear-gradient(225deg, var(--ink) 25%, transparent 25%) calc(var(--zz) * -1) 0,
+		linear-gradient(315deg, var(--ink) 25%, transparent 25%),
+		linear-gradient(45deg, var(--ink) 25%, transparent 25%);
+	background-size: calc(var(--zz) * 2) calc(var(--zz) * 2);
+	background-color: var(--yellow);
+}
+
+/* Sottsass's "Bacterio" laminate: little wriggling black worms */
+.bacterio {
+	background-color: #ffffff;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 90 90' fill='none' stroke='%23111' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M6 10c4-4 8 3 12-1'/%3E%3Cpath d='M32 6c2 5 7 3 8 8'/%3E%3Cpath d='M58 12c5-3 6 4 11 1s5 3 8 2'/%3E%3Cpath d='M12 34c3 4-2 7 2 11'/%3E%3Cpath d='M36 30c4 1 3 6 8 5'/%3E%3Cpath d='M62 38c-3 4 3 6 0 10'/%3E%3Cpath d='M80 30c3 3 7 0 8 4'/%3E%3Cpath d='M4 62c5 1 5-5 10-3'/%3E%3Cpath d='M28 56c1 5 6 4 6 9s4 3 6 5'/%3E%3Cpath d='M54 64c4-3 8 2 12-2'/%3E%3Cpath d='M78 58c-2 5 4 7 2 12'/%3E%3Cpath d='M14 80c3 3 6-2 9 2'/%3E%3Cpath d='M44 82c4 0 4-5 9-4'/%3E%3Cpath d='M70 84c3-3 7 1 10-2'/%3E%3C/svg%3E");
+	background-size: 90px 90px;
+}
+
+.bacterioDark {
+	background-color: var(--ink);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120' fill='none' stroke-width='3' stroke-linecap='round'%3E%3Cpath stroke='%23ff5fa2' d='M8 14c5-5 10 4 15-1'/%3E%3Cpath stroke='%2319c3b8' d='M44 8c3 6 9 4 10 10'/%3E%3Cpath stroke='%23ffd426' d='M80 16c6-4 8 5 14 1'/%3E%3Cpath stroke='%23b9a3ff' d='M16 48c4 5-3 9 3 14'/%3E%3Cpath stroke='%23ffd426' d='M50 42c5 1 4 8 10 6'/%3E%3Cpath stroke='%23ff5fa2' d='M88 52c-4 5 4 8 0 13'/%3E%3Cpath stroke='%2319c3b8' d='M6 86c6 1 6-6 13-4'/%3E%3Cpath stroke='%23b9a3ff' d='M40 80c1 6 8 5 8 12'/%3E%3Cpath stroke='%2319c3b8' d='M72 88c5-4 10 3 16-2'/%3E%3Cpath stroke='%23ffd426' d='M102 84c-3 6 5 9 2 16'/%3E%3Cpath stroke='%23ff5fa2' d='M20 110c4 4 8-3 12 2'/%3E%3Cpath stroke='%23ffd426' d='M60 110c5 0 5-6 12-5'/%3E%3C/svg%3E");
+	background-size: 120px 120px;
+}
+
+/* Terrazzo / confetti: chips of colour on cream */
+.terrazzo {
+	background-color: var(--paper);
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg stroke='%23111' stroke-width='1.5'%3E%3Cpath fill='%23ff5fa2' d='M20 18l14 4-6 11z'/%3E%3Cpath fill='%2319c3b8' d='M150 30l12-6 4 12-10 3z'/%3E%3Cpath fill='%23ffd426' d='M92 96l9-9 7 10-8 6z'/%3E%3Cpath fill='%23b9a3ff' d='M184 120l13 3-3 12-11-4z'/%3E%3Cpath fill='%232f4bff' d='M40 150l8 10-12 3z'/%3E%3Cpath fill='%23ff4a1c' d='M130 186l10-3 1 9z'/%3E%3Cpath fill='%23a6ecd0' d='M70 40l7 2-2 8-7-3z'/%3E%3C/g%3E%3Cg fill='%23111'%3E%3Ccircle cx='60' cy='88' r='2.5'/%3E%3Ccircle cx='118' cy='56' r='2'/%3E%3Ccircle cx='168' cy='80' r='2.5'/%3E%3Ccircle cx='100' cy='150' r='2'/%3E%3Ccircle cx='200' cy='190' r='2.5'/%3E%3Ccircle cx='20' cy='200' r='2'/%3E%3Ccircle cx='150' cy='140' r='1.6'/%3E%3C/g%3E%3C/svg%3E");
+	background-size: 220px 220px;
+}
+
+/* ---------------- Objects ---------------- */
+
+.outline {
+	border: 3px solid var(--ink);
+}
+
+.hard {
+	box-shadow: 8px 8px 0 var(--ink);
+}
+
+.hardSm {
+	box-shadow: 4px 4px 0 var(--ink);
+}
+
+.triangle {
+	clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* A black-edged triangle: stacked two clipped layers */
+.triOutline {
+	position: relative;
+	background: var(--ink);
+	clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.triOutline::after {
+	content: '';
+	position: absolute;
+	inset: 7px 6px 3px 6px;
+	background: inherit;
+	clip-path: polygon(50% 12%, 94% 100%, 6% 100%);
+	background: var(--tri-fill, var(--turq));
+}
+
+/* ---------------- Interactions ---------------- */
+
+.pill {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	border: 3px solid var(--ink);
+	border-radius: 999px;
+	box-shadow: 4px 4px 0 var(--ink);
+	transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.pill:hover {
+	transform: translate(-2px, -2px) rotate(-2deg);
+	box-shadow: 6px 6px 0 var(--ink);
+}
+.pill:active {
+	transform: translate(3px, 3px);
+	box-shadow: 1px 1px 0 var(--ink);
+}
+
+.focus:focus-visible,
+.pill:focus-visible,
+.page a:focus-visible {
+	outline: 4px solid var(--blue);
+	outline-offset: 4px;
+	border-radius: 6px;
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+	border: 3px solid var(--ink);
+	box-shadow: 6px 6px 0 var(--ink);
+	transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.btn:hover {
+	transform: translate(-3px, -3px);
+	box-shadow: 9px 9px 0 var(--ink);
+}
+
+.chip {
+	display: inline-block;
+	border: 2px solid var(--ink);
+	border-radius: 999px;
+	padding: 0.15rem 0.7rem;
+	font-size: 0.8rem;
+	font-weight: 700;
+	line-height: 1.5;
+}
+
+/* ---------------- Motion ---------------- */
+
+@keyframes spin {
+	to { transform: rotate(360deg); }
+}
+@keyframes wobble {
+	0%, 100% { transform: rotate(var(--r, 0deg)) translateY(0); }
+	50% { transform: rotate(calc(var(--r, 0deg) + 6deg)) translateY(-8px); }
+}
+@keyframes wiggle {
+	0%, 100% { transform: translateX(0); }
+	50% { transform: translateX(-24px); }
+}
+
+.spin { animation: spin 22s linear infinite; }
+.wobble { animation: wobble 5s ease-in-out infinite; }
+.wiggle { animation: wiggle 6s ease-in-out infinite; }
+
+.cardTilt {
+	transition: transform 220ms cubic-bezier(.3,1.6,.5,1);
+}
+.cardTilt:hover {
+	transform: rotate(0deg) scale(1.01) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.spin, .wobble, .wiggle { animation: none; }
+	.pill, .btn, .cardTilt { transition: none; }
+	.pill:hover, .btn:hover { transform: none; }
+}

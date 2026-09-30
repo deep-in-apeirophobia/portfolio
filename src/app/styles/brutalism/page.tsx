@@ -104,7 +104,10 @@ export default function BrutalismPage() {
 						<dl className={styles.heroMeta}>
 							<div><dt>role</dt><dd className={styles.role}>{PROFILE.role}</dd></div>
 							<div><dt>greeting</dt><dd>{PROFILE.greeting}</dd></div>
-							<div><dt>file</dt><dd className={styles.mono}>index.html</dd></div>
+							<div className={styles.hideSm}><dt>file</dt><dd className={styles.mono}>index.html</dd></div>
+							<div className={styles.hideSm}><dt>entries</dt><dd className={styles.mono}>{String(PROJECTS.length).padStart(2, '0')} projects</dd></div>
+							<div><dt>mail</dt><dd><a href={`mailto:${CONTACT.emails[0]}`} className={styles.link}>{CONTACT.emails[0]}</a></dd></div>
+							<div className={styles.hideSm}><dt>fonts</dt><dd className={styles.mono}>Arimo / Tinos / Cousine</dd></div>
 						</dl>
 
 						<p className={styles.pitch}>

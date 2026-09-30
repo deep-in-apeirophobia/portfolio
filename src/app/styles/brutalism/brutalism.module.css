@@ -151,7 +151,8 @@
 .hideSm { display: none; }
 
 @media (min-width: 720px) {
-	.hideSm { display: inline; }
+	span.hideSm { display: inline; }
+	div.hideSm { display: grid; }
 }
 
 /* ---------- markup tags ---------- */
@@ -175,7 +176,7 @@
 .name {
 	font-family: var(--sans);
 	font-weight: 700;
-	font-size: clamp(64px, 22vw, 400px);
+	font-size: clamp(64px, 27vw, 400px);
 	line-height: 0.8;
 	letter-spacing: -0.06em;
 	margin: 0;
@@ -188,7 +189,7 @@
 
 @media (min-width: 720px) {
 	.name {
-		font-size: 13.4vw;
+		font-size: 15vw;
 		letter-spacing: -0.065em;
 		padding: 0.08em 0.02em 0.02em;
 	}
@@ -218,8 +219,11 @@
 	}
 }
 
-.heroMeta > div {
+.heroMeta > div:not(.hideSm) {
 	display: grid;
+}
+
+.heroMeta > div {
 	grid-template-columns: 96px 1fr;
 	border-bottom: 1px solid var(--ink);
 }
